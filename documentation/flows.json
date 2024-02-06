@@ -1,0 +1,22 @@
+[
+    {
+        "id": "908153ee51d1c10d",
+        "type": "function",
+        "z": "4f835676dcea6d06",
+        "name": "function 1",
+        "func": "var msg1 = {};\nif (msg.payload <=25){\n    msg1.payload = \"Too Closed\";\n    return msg1;\n}\nelse if (msg.payload>25){\n    return msg;\n\n}",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 140,
+        "wires": [
+            [
+                "695ac74b917ded1d"
+            ]
+        ]
+    }
+]
