@@ -117,6 +117,7 @@
   
   input:checked + .round {
     background-color: #781dd3;
+    opacity: 1;
   }
   
   input:focus + .round {
