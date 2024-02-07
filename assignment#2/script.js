@@ -21,6 +21,7 @@ function changecolor() {
     }
 }
 
+//reference: https://codepen.io/Luc-Designs/pen/LXxBPg
 function createHex() {
     var hexCode1 = "";
     var hexValues1 = "0123456789abcdef";
