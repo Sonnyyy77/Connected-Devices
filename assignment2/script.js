@@ -33,13 +33,9 @@ function createHex() {
   }
 
 function surprise() {
-  
-    var deg = Math.floor(Math.random() *360);
-        
+    var deg = Math.floor(Math.random() *360);  
     var gradient = "linear-gradient(" + deg + "deg, " + "#" + createHex() + ", " + "#" + createHex() +")";
-
     document.body.style.background = gradient;
-        
     console.log(hexCode1, hexCode2); 
 }
 
