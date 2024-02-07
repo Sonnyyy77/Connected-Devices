@@ -144,5 +144,38 @@
   #hidtext {
     color: white;
     font-family: "Gill Sans", sans-serif;
+    opacity: 0;
+  }
+
+  #button {
+    position: absolute;
+    text-align: center;
+    left: 0%;
+    right: 0%;
+    margin-left: auto;
+    margin-right: auto;
+    bottom: 100px;
+  }
+
+  #roundbutton {
+    padding: 15px 25px;
+    font-size: 20px;
+    font-family: "Gill Sans", sans-serif;
+    cursor: pointer;
+    border: none;
+    border-radius: 25px;
+    background-color: #bdb3c6;
+    opacity: 0.7;
+    transition: 0.3s;
+  }
+
+  #roundbutton:hover {
+    opacity: 1;
+    box-shadow: 0 0 25px #cc99ff, 0 0 5px #36006b;
+  }
+
+  #roundbutton:active {
+    background-color: #781dd3;
+    color: white;
   }
   
