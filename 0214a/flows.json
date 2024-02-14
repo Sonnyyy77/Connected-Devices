@@ -1,0 +1,89 @@
+[
+    {
+        "id": "9a681ff391f7f399",
+        "type": "tab",
+        "label": "Flow 4",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "474714e019f69250",
+        "type": "group",
+        "z": "9a681ff391f7f399",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "6f8336d6e1cef34d",
+            "f3ad56a5b88c39d2",
+            "fd7ca22a06b95321"
+        ],
+        "x": 274,
+        "y": 199,
+        "w": 452,
+        "h": 182
+    },
+    {
+        "id": "6f8336d6e1cef34d",
+        "type": "debug",
+        "z": "9a681ff391f7f399",
+        "g": "474714e019f69250",
+        "name": "debug 7",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 600,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "f3ad56a5b88c39d2",
+        "type": "udp in",
+        "z": "9a681ff391f7f399",
+        "g": "474714e019f69250",
+        "name": "",
+        "iface": "",
+        "port": "7777",
+        "ipv": "udp4",
+        "multicast": "false",
+        "group": "",
+        "datatype": "utf8",
+        "x": 360,
+        "y": 280,
+        "wires": [
+            [
+                "6f8336d6e1cef34d",
+                "fd7ca22a06b95321"
+            ]
+        ]
+    },
+    {
+        "id": "fd7ca22a06b95321",
+        "type": "websocket out",
+        "z": "9a681ff391f7f399",
+        "g": "474714e019f69250",
+        "name": "",
+        "server": "05f55a8b99679447",
+        "client": "",
+        "x": 620,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "05f55a8b99679447",
+        "type": "websocket-listener",
+        "path": "/testpage",
+        "wholemsg": "false"
+    }
+]

@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>Websocket Test</title>
+    </head>
+    <body>
+        <p id="socket_data"></p>
+        <script>
+            const socket = new WebSocket("ws://localhost:1880/testpage");
+            // socket.addEventListener("open", handleSocketOpen);
+            // socket.addEventListener("close", handleSocketClose);
+            // function handleSocketOpen() {
+            //     document.body.style.backgroundColor = "black";
+            // }
+            // function handleSocketClose() {
+            //     document.body.style.backgroundColor = "red";
+            // }
+            socket.addEventListener("message", handleSocketMessage);
+            function handleSocketMessage(event) {
+                // document.body.style.backgroundColor = "rgb(0, " + event.data*255 + ",0)";
+                // console.log("yellow");
+                document.getElementById("socket_data").innerHTML = event.data;
+                console.log(event.data);
+            }
+        </script>
+    </body>
+</html>
