@@ -94,8 +94,8 @@
               text.style.fontSize = sensorval[0]+"px";
               text.style.rotate = "90deg";
             }
-            else {
-              document.querySelector("#inPayload").innerHTML = msg.payloadString;
+            else if (msg.payloadString == "Offline"){
+              document.querySelector("#inPayload").innerHTML = "Offline";
             }
             // document.querySelector("#inPayload").innerHTML = msg.payloadString;
             // console.log(msg);
