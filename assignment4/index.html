@@ -34,11 +34,14 @@
 
     <script>
         
-        const broker = "theyonetwork.cloud.shiftr.io";
+        // const broker = "theyonetwork.cloud.shiftr.io";
+        const broker = "public.cloud.shiftr.io";
         const mqtt_port = 443; //we use HTTPS port 443 when creating a browser-based MQTT client
         
-        const mqtt_user = "theyonetwork";
-        const mqtt_pass = "ConnDevSP24";
+        // const mqtt_user = "theyonetwork";
+        // const mqtt_pass = "ConnDevSP24";
+        const mqtt_user = "public";
+        const mqtt_pass = "public";
         const clientID = "s_client";
  
         //the topic incoming messages should be sent to
@@ -59,7 +62,7 @@
         //you should subscribe to topics in here as well
         function mqttConnected() {
             MQTT.subscribe(subTopic);
-            MQTT.subscribe("DirectionDetector/status");
+            // MQTT.subscribe("DirectionDetector/status");
             MQTT.onMessageArrived = handleMQTTMessage; //callback function for incoming messages
             console.log("MQTT connected successfully.");
             // document.querySelector("#sendMQTTButton").disabled = false;

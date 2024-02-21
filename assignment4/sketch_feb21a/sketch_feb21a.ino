@@ -12,12 +12,15 @@ const char wifi_pass[] = "+s0a+s03!2gether?";
 // const char wifi_pass[] = "obtuse9-aye-dub";
 
 //MQTT broker info: url and port (1883 default for MQTT)
-const char broker[] = "theyonetwork.cloud.shiftr.io";
+// const char broker[] = "theyonetwork.cloud.shiftr.io";
+const char broker[] = "public.cloud.shiftr.io";
 const int port = 1883;
 
 //if needed: broker authentication credentials
-const char mqtt_user[] = "theyonetwork";
-const char mqtt_pass[] = "ConnDevSP24";
+// const char mqtt_user[] = "theyonetwork";
+// const char mqtt_pass[] = "ConnDevSP24";
+const char mqtt_user[] = "public";
+const char mqtt_pass[] = "public";
 
 //the topic this device will publish messages to
 const char pubTopic[] = "DirectionDetector";
@@ -56,14 +59,16 @@ void setup() {
   mqtt.print(willPayload);
   mqtt.endWill();
 
-  if (!mqtt.connect(broker, port)) {
+  while (!mqtt.connect(broker, port)) {
     //error codes
     //  -1: credentials rejected
     //  -2: can't connect to broker
     Serial.print("MQTT connection failed! Error code = ");
     Serial.println(mqtt.connectError());
-    while (true) {}; //do nothing forever
-  } else Serial.println("MQTT connected.");
+    delay(1000);
+    // while (true) {}; //do nothing forever
+  } 
+  Serial.println("MQTT connected.");
 
   if (!IMU.begin()) {
     Serial.println("Failed to initialize IMU!");
