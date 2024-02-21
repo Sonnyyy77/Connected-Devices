@@ -59,6 +59,7 @@
         //you should subscribe to topics in here as well
         function mqttConnected() {
             MQTT.subscribe(subTopic);
+            MQTT.subscribe("DirectionDetector/status");
             MQTT.onMessageArrived = handleMQTTMessage; //callback function for incoming messages
             console.log("MQTT connected successfully.");
             // document.querySelector("#sendMQTTButton").disabled = false;
@@ -97,7 +98,7 @@
               document.querySelector("#inPayload").innerHTML = msg.payloadString;
             }
             // document.querySelector("#inPayload").innerHTML = msg.payloadString;
-            console.log(msg);
+            // console.log(msg);
         }
 
     </script>

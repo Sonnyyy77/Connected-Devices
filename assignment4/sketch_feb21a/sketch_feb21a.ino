@@ -6,10 +6,10 @@ WiFiClient wifi;
 MqttClient mqtt(wifi);
 
 //WiFi network info: ssid and password
-// const char wifi_ssid[] = "sandbox370";
-// const char wifi_pass[] = "+s0a+s03!2gether?";
-const char wifi_ssid[] = "Verizon_HZWY66";
-const char wifi_pass[] = "obtuse9-aye-dub";
+const char wifi_ssid[] = "sandbox370";
+const char wifi_pass[] = "+s0a+s03!2gether?";
+// const char wifi_ssid[] = "Verizon_HZWY66";
+// const char wifi_pass[] = "obtuse9-aye-dub";
 
 //MQTT broker info: url and port (1883 default for MQTT)
 const char broker[] = "theyonetwork.cloud.shiftr.io";
