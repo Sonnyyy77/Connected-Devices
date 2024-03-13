@@ -30,9 +30,7 @@ function handleSocketMessage(event) {
         text.style.color = "black";
         hidtext.style.opacity = "0";
     }
-
     // console.log(colorval[0]);
-
 }
 
 handleSocketMessage();
