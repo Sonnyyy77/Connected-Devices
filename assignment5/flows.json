@@ -1,0 +1,115 @@
+[
+    {
+        "id": "2d3ce7ce700fc5b1",
+        "type": "tab",
+        "label": "Flow 5",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "f47d17c6c38b2c5d",
+        "type": "http in",
+        "z": "2d3ce7ce700fc5b1",
+        "name": "",
+        "url": "/message",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 280,
+        "y": 240,
+        "wires": [
+            [
+                "72fce2c2b682bd6c"
+            ]
+        ]
+    },
+    {
+        "id": "72fce2c2b682bd6c",
+        "type": "function",
+        "z": "2d3ce7ce700fc5b1",
+        "name": "function 5",
+        "func": "msg.payload = flow.get(\"message\");\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 280,
+        "wires": [
+            [
+                "54b5d6ccaac9d99e"
+            ]
+        ]
+    },
+    {
+        "id": "54b5d6ccaac9d99e",
+        "type": "http response",
+        "z": "2d3ce7ce700fc5b1",
+        "name": "",
+        "statusCode": "",
+        "headers": {
+            "content-type": "application/json"
+        },
+        "x": 770,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "1572acc5745ecd51",
+        "type": "http in",
+        "z": "2d3ce7ce700fc5b1",
+        "name": "",
+        "url": "/addMessage",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 290,
+        "y": 400,
+        "wires": [
+            [
+                "9a1533a3db1b5781"
+            ]
+        ]
+    },
+    {
+        "id": "9a1533a3db1b5781",
+        "type": "function",
+        "z": "2d3ce7ce700fc5b1",
+        "name": "function 6",
+        "func": "// let responseData = flow.get(\"message\") || \"\";\n// responseData += msg.req.body;\n// flow.set(\"message\", responseData);\nflow.set(\"message\", msg.payload);\n\n// msg.payload = responseData;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 380,
+        "wires": [
+            [
+                "54b5d6ccaac9d99e",
+                "ca136c7a5c0e9995"
+            ]
+        ]
+    },
+    {
+        "id": "ca136c7a5c0e9995",
+        "type": "debug",
+        "z": "2d3ce7ce700fc5b1",
+        "name": "debug 8",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 800,
+        "y": 420,
+        "wires": []
+    }
+]
