@@ -81,15 +81,15 @@ function handleSocketMessage(event) {
   let colorval = event.data.split(",");
   console.log(colorval)
 
-  //white: 9, 9, 9 // 255, 255, 255
-  //black: 53, 52, 50 // 0, 0, 0
-  //red: 15, 39, 35 // 255, 0, 0
-  //blue: 46, 34, 23 // 0, 0, 255
-  //green: 30, 21, 30 // 0, 255, 0
+  //white: 5, 5, 5 // 255, 255, 255
+  //black: 35, 35, 35 // 0, 0, 0
+  //red: 8, 20, 17 // 255, 0, 0
+  //blue: 25, 20, 13 // 0, 0, 255
+  //green: 16, 12, 17 // 0, 255, 0
 
-  colorR = map(colorval[0], 10, 50, 255, 0)
-  colorG = map(colorval[1], 10, 50, 255, 0)
-  colorB = map(colorval[2], 10, 50, 255, 0)
+  colorR = map(colorval[0], 5, 40, 255, 0)
+  colorG = map(colorval[1], 5, 40, 255, 0)
+  colorB = map(colorval[2], 5, 40, 255, 0)
 }
 
 

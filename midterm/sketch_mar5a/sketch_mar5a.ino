@@ -1,14 +1,14 @@
 #include <WiFiNINA.h>
 WiFiUDP udpClient;
 
-const char server[] = "192.168.1.167";
+const char server[] = "10.23.11.100";
 const int port = 7777;
 const int localPort = 5000;
 
-// const char WIFI_SSID[] = "sandbox370";
-// const char WIFI_PASS[] = "+s0a+s03!2gether?";
-const char WIFI_SSID[] = "Verizon_HZWY66";
-const char WIFI_PASS[] = "obtuse9-aye-dub";
+const char WIFI_SSID[] = "sandbox370";
+const char WIFI_PASS[] = "+s0a+s03!2gether?";
+// const char WIFI_SSID[] = "Verizon_HZWY66";
+// const char WIFI_PASS[] = "obtuse9-aye-dub";
 
 // TCS230 or TCS3200 pins wiring to Arduino
 #define S0 13
@@ -49,7 +49,6 @@ void setup() {
     delay(1000);
   }
   Serial.println("connected!");
-
   udpClient.begin(localPort);
 }
 

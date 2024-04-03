@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Assignment5</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <meta charset="utf-8" />
+    </head>
+    <body>
+        <div id="message"></div>
+        <script>
+
+            let serverIP = "147.182.142.189";
+            let port = 1880; //default http port = 80, or use 1880 for node-red
+            let endpoint = "/"; 
+
+            //assemble URL (or just manually type it here)
+            const url = `http://147.182.142.189:1880/message`;
+
+            //if your endpoint responds with plain text:
+            function getStuff() {
+                fetch(url)
+                    .then(res => res.text())
+                    .then(text => {
+                        document.getElementById('message').innerText = text;
+                        if (document.getElementById('message').innerText === "TURNING LEFT"){
+                            document.body.style.background = "#ba9cf6";
+                        }
+                        else if (document.getElementById('message').innerText === "TURNING RIGHT"){
+                            document.body.style.background = "#cfb7ff";
+                        }
+                        else if (document.getElementById('message').innerText === "TURNING UP"){
+                            document.body.style.background = "#a8c0f9";
+                        }
+                        else if (document.getElementById('message').innerText === "TURNING DOWN"){
+                            document.body.style.background = "#a0a8f3";
+                        }
+                    }
+                );
+            }
+
+            setInterval(getStuff, 100);
+        </script>
+    </body>
+</html>
