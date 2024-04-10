@@ -1,0 +1,197 @@
+[
+    {
+        "id": "3f93b73705a288f6",
+        "type": "tab",
+        "label": "Flow 7",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "1d64eba896afcf99",
+        "type": "switch",
+        "z": "3f93b73705a288f6",
+        "name": "",
+        "property": "req.query",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "hask",
+                "v": "deviceID",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 410,
+        "y": 200,
+        "wires": [
+            [
+                "30cb3f17a0465301"
+            ],
+            [
+                "f71bc84b6d85ac9b"
+            ]
+        ]
+    },
+    {
+        "id": "f71bc84b6d85ac9b",
+        "type": "change",
+        "z": "3f93b73705a288f6",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "statusCode",
+                "pt": "msg",
+                "to": "400",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 640,
+        "y": 260,
+        "wires": [
+            [
+                "63bb1dd1f3b46703"
+            ]
+        ]
+    },
+    {
+        "id": "d72966577aaf0f39",
+        "type": "http in",
+        "z": "3f93b73705a288f6",
+        "name": "",
+        "url": "/data",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 210,
+        "y": 200,
+        "wires": [
+            [
+                "1d64eba896afcf99",
+                "27d32c4571653505"
+            ]
+        ]
+    },
+    {
+        "id": "63bb1dd1f3b46703",
+        "type": "http response",
+        "z": "3f93b73705a288f6",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 830,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "30cb3f17a0465301",
+        "type": "function",
+        "z": "3f93b73705a288f6",
+        "name": "function 11",
+        "func": "let data = global.get(\"multiData\") || {};\nlet deviceData = data[msg.req.query.deviceID] || [];\ndeviceData.push({timeSent: Date.now(), data: msg.req.body});\n// data.push({ msg: Number(msg.req.body), timeSent: Date.now() });\ndata[msg.req.query.deviceID] = deviceData;\nglobal.set(\"multiData\", data);\nmsg.statusCode = 200;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 620,
+        "y": 180,
+        "wires": [
+            [
+                "608606685a573401"
+            ]
+        ]
+    },
+    {
+        "id": "608606685a573401",
+        "type": "http response",
+        "z": "3f93b73705a288f6",
+        "name": "",
+        "statusCode": "",
+        "headers": {
+            "content-type": "application/json"
+        },
+        "x": 810,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "7a0d7526ccafd4a0",
+        "type": "function",
+        "z": "3f93b73705a288f6",
+        "name": "function 12",
+        "func": "// msg.payload = global.get(\"sensorData\") || [];\nlet allData = global.get(\"multiData\") || {};\nif (msg.req.query.deviceID) {\n    msg.payload = allData[msg.req.query.deviceID];\n} else {\n    msg.payload = allData;\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 470,
+        "y": 340,
+        "wires": [
+            [
+                "1e38de9f42518f61"
+            ]
+        ]
+    },
+    {
+        "id": "216338a02cd25c8b",
+        "type": "http in",
+        "z": "3f93b73705a288f6",
+        "name": "",
+        "url": "/data",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 190,
+        "y": 320,
+        "wires": [
+            [
+                "7a0d7526ccafd4a0"
+            ]
+        ]
+    },
+    {
+        "id": "1e38de9f42518f61",
+        "type": "http response",
+        "z": "3f93b73705a288f6",
+        "name": "",
+        "statusCode": "200",
+        "headers": {
+            "content-type": "application/json"
+        },
+        "x": 730,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "27d32c4571653505",
+        "type": "debug",
+        "z": "3f93b73705a288f6",
+        "name": "debug 11",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "req.query",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 420,
+        "y": 280,
+        "wires": []
+    }
+]
