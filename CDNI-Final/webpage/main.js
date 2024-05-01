@@ -9,7 +9,7 @@ let color6 = document.getElementById('paint6');
 let color7 = document.getElementById('paint7');
 let rotateAngle = 0;
 let rotationCenter;
-
+ 
 const Engine = Matter.Engine,
   Render = Matter.Render,
   Runner = Matter.Runner,
