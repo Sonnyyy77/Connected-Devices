@@ -1,0 +1,112 @@
+[
+    {
+        "id": "9a681ff391f7f399",
+        "type": "tab",
+        "label": "Flow 4",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "474714e019f69250",
+        "type": "group",
+        "z": "9a681ff391f7f399",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "6f8336d6e1cef34d",
+            "f3ad56a5b88c39d2",
+            "fd7ca22a06b95321",
+            "548ecc6a07370be5"
+        ],
+        "x": 194,
+        "y": 239,
+        "w": 552,
+        "h": 182
+    },
+    {
+        "id": "6f8336d6e1cef34d",
+        "type": "debug",
+        "z": "9a681ff391f7f399",
+        "g": "474714e019f69250",
+        "name": "debug 7",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 640,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "f3ad56a5b88c39d2",
+        "type": "udp in",
+        "z": "9a681ff391f7f399",
+        "g": "474714e019f69250",
+        "name": "",
+        "iface": "",
+        "port": "7777",
+        "ipv": "udp4",
+        "multicast": "false",
+        "group": "",
+        "datatype": "utf8",
+        "x": 280,
+        "y": 320,
+        "wires": [
+            [
+                "548ecc6a07370be5"
+            ]
+        ]
+    },
+    {
+        "id": "fd7ca22a06b95321",
+        "type": "websocket out",
+        "z": "9a681ff391f7f399",
+        "g": "474714e019f69250",
+        "name": "",
+        "server": "05f55a8b99679447",
+        "client": "",
+        "x": 600,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "548ecc6a07370be5",
+        "type": "function",
+        "z": "9a681ff391f7f399",
+        "g": "474714e019f69250",
+        "name": "function 2",
+        "func": "const data = msg.payload.trim().split(',');\nconst gyroX = parseFloat(data[0]);\nconst gyroY = parseFloat(data[1]);\nconst button1State = parseInt(data[2]);\nconst button2State = parseInt(data[3]);\n\nmsg.payload = {\n    gyroX: gyroX,\n    gyroY: gyroY,\n    button1State: button1State,\n    button2State: button2State\n};\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 340,
+        "wires": [
+            [
+                "6f8336d6e1cef34d",
+                "fd7ca22a06b95321"
+            ]
+        ]
+    },
+    {
+        "id": "05f55a8b99679447",
+        "type": "websocket-listener",
+        "path": "/testpage",
+        "wholemsg": "false"
+    }
+]
