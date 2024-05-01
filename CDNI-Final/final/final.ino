@@ -15,7 +15,7 @@ int degreesY = 0;
 // const int button1Pin = 2;
 // const int button2Pin = 4;
 
-const char server[] = "192.168.1.167"; //local IP address of receiver device goes here
+const char server[] = "10.23.11.89"; //local IP address of receiver device goes here
 const int port = 7777; //desired port # goes here. Make sure the receiver is listening on the same port!
 
 //the port OTHER devices should use when sending to this one
