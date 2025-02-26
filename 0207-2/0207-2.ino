@@ -6,8 +6,8 @@ const char server[] = "192.168.1.167"; //local IP address of receiver device goe
 const int portNum = 7777; //desired port # goes here. Make sure the receiver is listening on the same port!
 
 //be sure to remove WiFi network details before uploading this code!
-const char WIFI_SSID[] = "Verizon_HZWY66"; //WiFi network name goes here: "sandbox370"
-const char WIFI_PASS[] = "obtuse9-aye-dub"; //WiFi password goes here: "+s0a+s03!2gether?"
+const char WIFI_SSID[] = ""; //WiFi network name goes here
+const char WIFI_PASS[] = ""; //WiFi password goes here
 
 // const int localPort = 5500;
 

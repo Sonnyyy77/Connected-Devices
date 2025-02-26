@@ -6,7 +6,7 @@ MqttClient mqtt(wifi);
 
 //WiFi network info: ssid and password
 // const char wifi_ssid[] = "sandbox370";
-// const char wifi_pass[] = "+s0a+s03!2gether?";
+// const char wifi_pass[] = " ";
 const char wifi_ssid[] = "Verizon_HZWY66"; //WiFi network name goes here
 const char wifi_pass[] = "obtuse9-aye-dub"; //WiFi password goes here
 

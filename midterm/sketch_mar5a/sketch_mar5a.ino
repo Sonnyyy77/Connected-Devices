@@ -6,7 +6,7 @@ const int port = 7777;
 const int localPort = 5000;
 
 const char WIFI_SSID[] = "sandbox370";
-const char WIFI_PASS[] = "+s0a+s03!2gether?";
+const char WIFI_PASS[] = " ";
 // const char WIFI_SSID[] = "Verizon_HZWY66";
 // const char WIFI_PASS[] = "obtuse9-aye-dub";
 

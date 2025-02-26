@@ -7,7 +7,7 @@ const int portNum = 443; //desired port # goes here. Make sure the receiver is l
 
 //be sure to remove WiFi network details before uploading this code!
 const char WIFI_SSID[] = "sandbox370"; //WiFi network name goes here
-const char WIFI_PASS[] = "+s0a+s03!2gether?"; //WiFi password goes here
+const char WIFI_PASS[] = " "; //WiFi password goes here
 
 void setup() {
   Serial.begin(9600);

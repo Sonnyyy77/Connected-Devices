@@ -7,7 +7,7 @@ const int portNum = 7070; //desired port # goes here. Make sure the receiver is 
 
 //be sure to remove WiFi network details before uploading this code!
 const char WIFI_SSID[] = "sandbox370"; //WiFi network name goes here //"Verizon_HZWY66"
-const char WIFI_PASS[] = "+s0a+s03!2gether?"; //WiFi password goes here //"obtuse9-aye-dub"
+const char WIFI_PASS[] = " "; //WiFi password goes here //"obtuse9-aye-dub"
 
 const int trigPin = 9;
 const int echoPin = 10;
